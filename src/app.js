@@ -14,17 +14,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://careeraashram-crm.vercel.app"
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-app.options('*', cors());   // 🔥 REQUIRED
-
+app.use(cors());
 app.use(express.json());
 
 app.get('/health', (_, res) => res.json({ status: 'ok' }));
